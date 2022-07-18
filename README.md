@@ -12,6 +12,9 @@
 ### Web Hosting    
 [DigitalOcean](https://www.digitalocean.com/) using [Ubuntu](https://ubuntu.com/) server on custom [Droplet](https://www.digitalocean.com/products/droplets) (virtual machine)   
 
+### Public Repository (linked to webhost)
+[#Public Github](https://github.com/DanielCadeau/goodvibesfrance)
+
 ### Domain
 *goodvibesfrance.live* on [name.com](https://www.name.com/)
 
