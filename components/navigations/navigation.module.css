@@ -6,7 +6,6 @@
     height: 100vh;
     position: fixed;
     pointer-events: none;
-    background-color: var(--main-background-color);
     z-index: 1000;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -20,6 +19,7 @@
     padding: 0px 16px;
     position: relative;
     pointer-events: all;
+    background-color: var(--main-background-color);
     box-shadow: var(--box-shadow);
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -51,6 +51,11 @@
     gap: 16px;
     height: 100%;
     list-style: none;
+}
+@media screen and (max-width: 680px) {
+    .menu {
+        display: none;
+    }
 }
 .menu > li {
     height: 100%;
@@ -90,6 +95,11 @@
     align-items: center;
     margin: 0px 0px 0px auto;
     position: relative;
+}
+@media screen and (max-width: 980px) {
+    .searchBarContainer {
+        display: none;
+    }
 }
 .searchBarContainer > input {
     min-width: 300px;
@@ -137,6 +147,11 @@
     height: 100%;
     margin: 0px 0px 0px 16px;
     padding: 0px 0px 0px 32px;
+}
+@media screen and (max-width: 980px) {
+    .userActionsContainer {
+        margin: 0px 0px 0px auto;
+    }
 }
 .userActionsContainer > button[data-button="callToActionWithIcon"] {
     margin: 0px 0px 0px 8px;

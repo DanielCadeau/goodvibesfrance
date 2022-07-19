@@ -10,7 +10,7 @@ import "../public/stylesheets/root.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const App = ({ Component, pageProps }) => {
     const [ language, setLanguage ] = useState("fr");
-    const [ theme, setTheme ] = useState("dark");
+    const [ theme, setTheme ] = useState("light");
     const  preferences = { language: language, setLanguage: setLanguage, theme: theme, setTheme: setTheme };
     useEffect(() => {
         var applyLanguage = () => {
@@ -36,7 +36,9 @@ const App = ({ Component, pageProps }) => {
         </Head>
         <div id="root">
             <Navigation Preferences={ preferences }></Navigation>
-            <Component { ...pageProps } Preferences={ preferences }/>
+            <div id="app">
+                <Component { ...pageProps } Preferences={ preferences }/>
+            </div>
         </div>
     </>;
 };
