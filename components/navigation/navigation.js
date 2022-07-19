@@ -26,7 +26,9 @@ const Navigation = ({ Preferences }) => {
             <ul className={ navigation.menu }>
                 { config.navigation.topBar.map((link, key) => <li key={ key } onClick={ transferToChild }>
                     <Link href={ translations[Preferences.language][link.url] }>
-                        <a>{ translations[Preferences.language][link.page] }</a>
+                        <a>
+                            <p>{ translations[Preferences.language][link.page] }</p>
+                        </a>
                     </Link>
                 </li>) }
             </ul>

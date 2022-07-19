@@ -6,6 +6,7 @@
     height: 100vh;
     position: fixed;
     pointer-events: none;
+    background-color: var(--main-background-color);
     z-index: 1000;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -49,4 +50,33 @@
     gap: 16px;
     height: 100%;
     list-style: none;
+}
+.menu > li {
+    height: 100%;
+    background: var(--horizontal-gradient-color);
+}
+.menu > li > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 2px);
+    position: relative;
+    background-color: var(--main-background-color);
+}
+.menu > li > a::before {
+    width: 100%;
+    height: calc(100% + 2px);
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--main-background-color);
+    transition: opacity 0.3s ease;
+}
+.menu > li > a:hover::before {
+    opacity: 0;
+}
+.menu > li > a > p {
+    z-index: 1;
 }

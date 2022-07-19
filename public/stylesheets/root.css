@@ -32,7 +32,8 @@
     --main-text-color: ##2D2D2D;
     --main-background-color: #FFFFFF;
     --sub-background-color: #EDEDED;
-    /* --placeholder-color: #A0A0A0; */
+    --placeholder-color: #A0A0A0;
+    --border: 2px solid var(--placeholder-color);
     --box-shadow: 0px 5px 20px #00000030;
 }
 [data-theme="dark"] {
@@ -45,7 +46,8 @@
     --main-text-color: #FFFFFF;
     --main-background-color: #2D2D2D;
     --sub-background-color: #3D3D3D;
-    /* --placeholder-color: #A0A0A0; */
+    --placeholder-color: #A0A0A0;
+    --border: 2px solid var(--placeholder-color);
     --box-shadow: 0px 5px 20px #00000030;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
