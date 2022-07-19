@@ -11,10 +11,12 @@
     box-sizing: border-box;
     font-size: 14px;
     font-family: Comfortaa;
+    color: var(--main-text-color);
     outline: none;
     -webkit-tap-highlight-color: transparent;
     border: none;
     background: none;
+    text-decoration: none;
     scroll-behavior: smooth;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -27,7 +29,7 @@
     --horizontal-gradient-color: linear-gradient(90deg, var(--main-color), var(--sub-color));
     --vertical-gradient-color: linear-gradient(180deg, var(--main-color), var(--sub-color));
     --error-color: #BE3327;
-    --main-text-color: #FFFFFF;
+    --main-text-color: ##2D2D2D;
     --main-background-color: #FFFFFF;
     --sub-background-color: #EDEDED;
     /* --placeholder-color: #A0A0A0; */
