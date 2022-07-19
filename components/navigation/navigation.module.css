@@ -6,6 +6,7 @@
     height: 100vh;
     position: fixed;
     pointer-events: none;
+    background-color: var(--main-background-color);
     z-index: 1000;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -14,7 +15,7 @@
 .topBar {
     display: flex;
     align-items: center;
-    height: 80px;
+    height: 60px;
     width: 100%;
     padding: 0px 16px;
     pointer-events: all;
@@ -28,7 +29,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin: 0px 16px 0px 0px;
+    margin: 0px 24px 0px 0px;
 }
 .logo > a {
     width: 100%;
@@ -46,6 +47,81 @@
 .menu {
     display: flex;
     align-items: center;
+    gap: 16px;
     height: 100%;
     list-style: none;
+}
+.menu > li {
+    height: 100%;
+    background: var(--horizontal-gradient-color);
+}
+.menu > li > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 2px);
+    position: relative;
+    background-color: var(--main-background-color);
+}
+.menu > li > a::before {
+    width: 100%;
+    height: calc(100% + 2px);
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--main-background-color);
+    transition: opacity 0.3s ease;
+}
+.menu > li > a:hover::before,
+.menu > li > a[class="active"]::before {
+    opacity: 0;
+}
+.menu > li > a > p {
+    z-index: 1;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Search Bar */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    margin: 0px 48px 0px auto;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+.searchBarContainer > input {
+    min-width: 300px;
+    height: 30px;
+    padding: 0px 46px 0px 16px;
+    border-radius: 30px;
+    background-color: var(--sub-background-color);
+}
+.searchBarContainer > input::placeholder {
+    color: var(--placeholder-color);
+}
+.searchBarContainer > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    border-radius: 30px;
+    background-color: var(--main-background-color);
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* User Actions Container */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.userActionsContainer {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    margin: -32px;
+    padding: 0px 32px 0px 16px;
+    transform: skewX(-30deg);
+    background: var(--horizontal-gradient-color);
 }
