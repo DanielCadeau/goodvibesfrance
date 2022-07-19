@@ -15,7 +15,7 @@
 .topBar {
     display: flex;
     align-items: center;
-    height: 80px;
+    height: 60px;
     width: 100%;
     padding: 0px 16px;
     pointer-events: all;
@@ -29,7 +29,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin: 0px 16px 0px 0px;
+    margin: 0px 24px 0px 0px;
 }
 .logo > a {
     width: 100%;
@@ -80,4 +80,33 @@
 }
 .menu > li > a > p {
     z-index: 1;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Search Bar */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 24px;
+    position: relative;
+}
+.searchBarContainer > input {
+    min-width: 300px;
+    height: 30px;
+    padding: 0px 46px 0px 16px;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow) inset;
+}
+.searchBarContainer > input::placeholder {
+    color: var(--placeholder-color);
+}
+.searchBarContainer > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    background-color: var(--main-background-color);
 }

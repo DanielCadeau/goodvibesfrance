@@ -3,7 +3,7 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import config from "../../config.json";
 import translations from "../../translations.json";
 import navigation from "./navigation.module.css";
@@ -45,8 +45,20 @@ const Navigation = ({ Preferences }) => {
                     </Link>
                 </li>) }
             </ul>
+            <SearchBar Preferences={ Preferences }></SearchBar>
         </div>
     </nav>;
+};
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Search Bar */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+const SearchBar = ({ Preferences }) => {
+    return <form className={ navigation.searchBarContainer }>
+        <input type="search" placeholder={ translations[Preferences.language]["Search for an event"] }></input>
+        <button type="submit">
+            <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </form>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */
