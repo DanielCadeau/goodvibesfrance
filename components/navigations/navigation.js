@@ -3,14 +3,16 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import config from "../../config.json";
 import translations from "../../translations.json";
+import QuickSettingsMenu from "../menus/quickSettingsMenu";
 import navigation from "./navigation.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Navigation */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 const Navigation = ({ Preferences }) => {
+    const [ toggleQuickSettingsMenu, setToggleQuickSettingsMenu ] = useState(false);
     const { route } = useRouter();
     useEffect(() => {
         var setActive = () => {
@@ -46,9 +48,14 @@ const Navigation = ({ Preferences }) => {
                 </li>) }
             </ul>
             <SearchBar Preferences={ Preferences }></SearchBar>
+            <div className={ navigation.userActionsBackground }></div>
             <div id="userActionsContainer" className={ navigation.userActionsContainer }>
                 <button data-button="callToAction">{ translations[Preferences.language]["Login"] }</button>
+                <button data-button="callToActionWithIcon" onClick={ () => setToggleQuickSettingsMenu(!toggleQuickSettingsMenu) }>
+                    <i className="fa-solid fa-cog"></i>
+                </button>
             </div>
+            <QuickSettingsMenu Preferences={ Preferences } State={ toggleQuickSettingsMenu }></QuickSettingsMenu>
         </div>
     </nav>;
 };

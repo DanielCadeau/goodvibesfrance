@@ -18,6 +18,7 @@
     height: 60px;
     width: 100%;
     padding: 0px 16px;
+    position: relative;
     pointer-events: all;
     box-shadow: var(--box-shadow);
 }
@@ -87,9 +88,8 @@
 .searchBarContainer {
     display: flex;
     align-items: center;
-    margin: 0px 48px 0px auto;
+    margin: 0px 0px 0px auto;
     position: relative;
-    box-shadow: var(--box-shadow);
 }
 .searchBarContainer > input {
     min-width: 300px;
@@ -97,6 +97,7 @@
     padding: 0px 46px 0px 16px;
     border-radius: 30px;
     background-color: var(--sub-background-color);
+    box-shadow: var(--box-shadow);
 }
 .searchBarContainer > input::placeholder {
     color: var(--placeholder-color);
@@ -113,15 +114,30 @@
     background-color: var(--main-background-color);
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* User Actions Background */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.userActionsBackground {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -32px;
+    transform: skewX(-30deg);
+    background: var(--horizontal-gradient-color);
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* User Actions Container */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 .userActionsContainer {
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 270px;
     height: 100%;
-    margin: -32px;
-    padding: 0px 32px 0px 16px;
-    transform: skewX(-30deg);
-    background: var(--horizontal-gradient-color);
+    margin: 0px 0px 0px 16px;
+    padding: 0px 0px 0px 32px;
+}
+.userActionsContainer > button[data-button="callToActionWithIcon"] {
+    margin: 0px 0px 0px 8px;
 }

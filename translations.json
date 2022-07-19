@@ -5,6 +5,10 @@
         "Search for an event": "Rechercher un évènement",
         "Contact Us": "Nous Contacter",
         "Login": "Connexion",
+        "French": "Français",
+        "English": "Anglais",
+        "Light": "Clair",
+        "Dark": "Sombre",
         "/": "/",
         "/events": "/evenements",
         "/contactus" : "/nouscontacter"
@@ -15,6 +19,10 @@
         "Search for an event": "Search for an event",
         "Contact Us": "Contact Us",
         "Login": "Login",
+        "French": "French",
+        "English": "English",
+        "Light": "Light",
+        "Dark": "Dark",
         "/": "/",
         "/events": "/events",
         "/contactus" : "/contactus"
