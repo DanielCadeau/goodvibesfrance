@@ -87,8 +87,9 @@
 .searchBarContainer {
     display: flex;
     align-items: center;
-    margin: 0px 0px 0px auto;
+    margin: 0px 48px 0px auto;
     position: relative;
+    box-shadow: var(--box-shadow);
 }
 .searchBarContainer > input {
     min-width: 300px;
@@ -110,4 +111,17 @@
     right: 0px;
     border-radius: 30px;
     background-color: var(--main-background-color);
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* User Actions Container */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.userActionsContainer {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    margin: -32px;
+    padding: 0px 32px 0px 16px;
+    transform: skewX(-30deg);
+    background: var(--horizontal-gradient-color);
 }

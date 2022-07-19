@@ -46,6 +46,9 @@ const Navigation = ({ Preferences }) => {
                 </li>) }
             </ul>
             <SearchBar Preferences={ Preferences }></SearchBar>
+            <div id="userActionsContainer" className={ navigation.userActionsContainer }>
+                <button data-button="callToAction">{ translations[Preferences.language]["Login"] }</button>
+            </div>
         </div>
     </nav>;
 };

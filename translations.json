@@ -4,6 +4,7 @@
         "Events": "Évènements",
         "Search for an event": "Rechercher un évènement",
         "Contact Us": "Nous Contacter",
+        "Login": "Connexion",
         "/": "/",
         "/events": "/evenements",
         "/contactus" : "/nouscontacter"
@@ -13,6 +14,7 @@
         "Events": "Events",
         "Search for an event": "Search for an event",
         "Contact Us": "Contact Us",
+        "Login": "Login",
         "/": "/",
         "/events": "/events",
         "/contactus" : "/contactus"
