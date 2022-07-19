@@ -130,6 +130,7 @@ button:hover::before {
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    background-size: cover;
 }
 #root > #app > .boxedContent {
     min-width: 1100px;

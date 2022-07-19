@@ -36,7 +36,9 @@ const App = ({ Component, pageProps }) => {
         </Head>
         <div id="root">
             <Navigation Preferences={ preferences }></Navigation>
-            <Component { ...pageProps } Preferences={ preferences }/>
+            <div id="app">
+                <Component { ...pageProps } Preferences={ preferences }/>
+            </div>
         </div>
     </>;
 };

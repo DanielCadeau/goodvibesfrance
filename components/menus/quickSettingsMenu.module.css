@@ -5,10 +5,13 @@
     display: flex;
     flex-direction: column;
     width: 250px;
+    gap: 16px;
+    padding: 16px;
     position: fixed;
     right: 0px;
     top: 60px;
     right: -260px;
+    border-bottom-left-radius: 10px;
     background-color: var(--main-background-color);
     box-shadow: var(--box-shadow);
     transition: right 0.3s ease;

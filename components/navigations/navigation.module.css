@@ -6,7 +6,6 @@
     height: 100vh;
     position: fixed;
     pointer-events: none;
-    background-color: var(--main-background-color);
     z-index: 1000;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -20,6 +19,7 @@
     padding: 0px 16px;
     position: relative;
     pointer-events: all;
+    background-color: var(--main-background-color);
     box-shadow: var(--box-shadow);
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
