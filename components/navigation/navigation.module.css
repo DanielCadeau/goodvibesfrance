@@ -87,7 +87,7 @@
 .searchBarContainer {
     display: flex;
     align-items: center;
-    margin: 0px 0px 0px 24px;
+    margin: 0px 0px 0px auto;
     position: relative;
 }
 .searchBarContainer > input {
@@ -95,7 +95,7 @@
     height: 30px;
     padding: 0px 46px 0px 16px;
     border-radius: 30px;
-    box-shadow: var(--box-shadow) inset;
+    background-color: var(--sub-background-color);
 }
 .searchBarContainer > input::placeholder {
     color: var(--placeholder-color);
@@ -108,5 +108,6 @@
     height: 30px;
     position: absolute;
     right: 0px;
+    border-radius: 30px;
     background-color: var(--main-background-color);
 }

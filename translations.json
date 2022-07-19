@@ -3,14 +3,18 @@
         "Home": "Accueil",
         "Events": "Évènements",
         "Search for an event": "Rechercher un évènement",
+        "Contact Us": "Nous Contacter",
         "/": "/",
-        "/events": "/evenements"
+        "/events": "/evenements",
+        "/contactus" : "/nouscontacter"
     },
     "en": {
         "Home": "Home",
         "Events": "Events",
         "Search for an event": "Search for an event",
+        "Contact Us": "Contact Us",
         "/": "/",
-        "/events": "/events"
+        "/events": "/events",
+        "/contactus" : "/contactus"
     }
 }

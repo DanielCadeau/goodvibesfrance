@@ -9,7 +9,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 12px;
     font-family: Comfortaa;
     color: var(--main-text-color);
     outline: none;
@@ -64,6 +64,15 @@ body > #__next {
 }
 a, button, input[type="submit"] {
     cursor: pointer;
+}
+i {
+    background: var(--diagonal-gradient-color);
+    background-clip: text;
+    transition: color 0.3s ease;
+}
+a:hover > i,
+button:hover > i {
+    color: transparent;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* App */
