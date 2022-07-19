@@ -2,11 +2,12 @@
     "fr": {
         "Home": "Accueil",
         "Events": "Évènements",
-        "/": "/"
+        "/": "/",
+        "/events": "/evenements"
     },
     "en": {
         "Home": "Home",
         "Events": "Events",
-        "/": "/"
+        "/events": "/events"
     }
 }
