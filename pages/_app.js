@@ -3,7 +3,7 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Navigation from "../components/navigation/navigation";
+import Navigation from "../components/navigations/navigation";
 import "../public/stylesheets/root.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* App */
@@ -11,7 +11,7 @@ import "../public/stylesheets/root.css";
 const App = ({ Component, pageProps }) => {
     const [ language, setLanguage ] = useState("fr");
     const [ theme, setTheme ] = useState("dark");
-    const  preferences = { language: language, theme: theme };
+    const  preferences = { language: language, setLanguage: setLanguage, theme: theme, setTheme: setTheme };
     useEffect(() => {
         var applyLanguage = () => {
             const html = document.querySelector("html");

@@ -1,0 +1,16 @@
+{
+    "api": {
+        "endpoint": ""
+    },
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+    },
+    "navigation": {
+        "topBar": [
+            { "icon": "fa-solid fa-house", "iconType": "i", "page": "Home", "url": "/" },
+            { "icon": "", "iconType": "i", "page": "Events", "url": "/events" },
+            { "icon": "fa-solid fa-paper-plane", "iconType": "i", "page": "Contact Us", "url": "/contactus" }
+        ]
+    }
+}

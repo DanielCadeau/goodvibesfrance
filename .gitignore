@@ -32,4 +32,3 @@ yarn-error.log*
 
 # static folder for DigitalOcean App Platform
 _static
-config.json
