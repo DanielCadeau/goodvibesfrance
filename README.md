@@ -7,7 +7,7 @@
 | Our technical stack | Details |
 |-|-|
 | *[Next.js](https://nextjs.org/)* | |
-| *[PostgreSQL](https://www.postgresql.org/)* | *Using [Prisma](https://www.prisma.io/) as an ORM.* |
+| *[MongoDB](https://www.mongodb.com/)* | *Using [Prisma](https://www.prisma.io/) as an ORM.* |
 
 ### Web Hosting    
 [DigitalOcean](https://www.digitalocean.com/) using [Ubuntu](https://ubuntu.com/) server on custom [Droplet](https://www.digitalocean.com/products/droplets) (virtual machine)   

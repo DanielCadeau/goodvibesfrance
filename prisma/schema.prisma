@@ -7,6 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  darkmode  Boolean
+}
+
+enum Role {
+  USER
+  CORPORATE
+  ADMIN
 }
