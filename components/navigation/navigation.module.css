@@ -74,7 +74,8 @@
     background-color: var(--main-background-color);
     transition: opacity 0.3s ease;
 }
-.menu > li > a:hover::before {
+.menu > li > a:hover::before,
+.menu > li > a[class="active"]::before {
     opacity: 0;
 }
 .menu > li > a > p {
