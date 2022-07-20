@@ -15,10 +15,13 @@
 ### Public Repository (linked to webhost)
 [#Public Github](https://github.com/DanielCadeau/goodvibesfrance)
 
+### Side Microservice used to get events
+[#Repository Github](https://github.com/DanielCadeau/goodvibesfrance-get-events)
+
 ### Domain
 *goodvibesfrance.live* on [name.com](https://www.name.com/)
 
-### Estimate Release Date
+## Estimate Release Date
 November 2022
 
 ## Team :
