@@ -9,6 +9,9 @@
         "English": "Anglais",
         "Light": "Clair",
         "Dark": "Sombre",
+        "Email": "Adresse email",
+        "Password": "Mot de passe",
+        "Log in": "Connexion",
         "/": "/",
         "/events": "/evenements",
         "/contactus" : "/nouscontacter"
@@ -23,6 +26,9 @@
         "English": "English",
         "Light": "Light",
         "Dark": "Dark",
+        "Email": "Email",
+        "Password": "Password",
+        "Log in": "Log in",
         "/": "/",
         "/events": "/events",
         "/contactus" : "/contactus"

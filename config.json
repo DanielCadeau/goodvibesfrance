@@ -12,5 +12,12 @@
             { "icon": "", "iconType": "i", "page": "Events", "url": "/events" },
             { "icon": "fa-solid fa-paper-plane", "iconType": "i", "page": "Contact Us", "url": "/contactus" }
         ]
+    },
+    "forms": {
+        "login": [
+            { "id": "loginEmail", "type": "email", "name": "email", "label": "Email", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "loginPassword", "type": "password", "name": "password", "label": "Password", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": null, "type": "submit", "name": null, "label": null, "placeholder": null, "defaultValue": "Log in", "required": null }
+        ]
     }
 }

@@ -1,26 +1,18 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Quick Settings Menu Container */
+/* Login Container */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 .container {
     display: flex;
     flex-direction: column;
-    width: 250px;
     gap: 16px;
-    padding: 16px;
-    position: fixed;
-    top: 60px;
-    right: -260px;
-    border-bottom-left-radius: 10px;
-    background-color: var(--main-background-color);
-    box-shadow: var(--box-shadow);
-    transition: right 0.3s ease;
-}
-.container > select {
-    height: 30px;
+    width: 300px;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Toggling Class */
+/* Site Logo */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-.show {
-    right: 0px;
+.siteLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 16px auto;
 }

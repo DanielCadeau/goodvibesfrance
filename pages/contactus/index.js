@@ -6,10 +6,10 @@ import translations from "../../translations.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* ContactUs */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const ContactUs = ({ Preferences }) => {
+const ContactUs = ({ Settings }) => {
     return <>
         <Head>
-            <title>{ "Good Vibes France - " + translations[Preferences.language]["Contact Us"] }</title>
+            <title>{ "Good Vibes France - " + translations[Settings.language]["Contact Us"] }</title>
         </Head>
         <div className="boxedContent">
 
