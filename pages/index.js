@@ -2,11 +2,12 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
+import { PrismaClient } from "@prisma/client";
 import translations from "../translations.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Home */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const Home = ({ Settings }) => {
+const Home = ({ Settings, props }) => {
     return <>
         <Head>
             <title>{ "Good Vibes France - " + translations[Settings.language]["Home"] }</title>
@@ -17,6 +18,24 @@ const Home = ({ Settings }) => {
     </>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Fetching Data */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+const getServerSideProps = async (context) => {
+    const prisma = new PrismaClient();
+    const fetch = async () => {
+        await prisma.$connect();
+        const gvfSettings = await prisma.settings.findFirst();
+        return gvfSettings;
+    };
+    const response = await fetch().catch((error) => { throw error }).finally(async () => await prisma.$disconnect());
+    return {
+        props: {
+            gvfSettings : response
+        }
+    };
+};
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 export default Home;
+export { getServerSideProps };

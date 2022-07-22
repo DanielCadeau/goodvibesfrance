@@ -10,8 +10,9 @@ import "../public/stylesheets/root.css";
 /* App */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const App = ({ Component, pageProps }) => {
-    const [ language, setLanguage ] = useState("fr");
-    const [ theme, setTheme ] = useState("light");
+    console.log(pageProps);
+    const [ language, setLanguage ] = useState(pageProps.gvfSettings.language);
+    const [ theme, setTheme ] = useState(pageProps.gvfSettings.theme);
     const [ toggleLoginForm, setToggleLoginForm ] = useState(false);
     const  settings = {
         language: language,
@@ -39,7 +40,7 @@ const App = ({ Component, pageProps }) => {
         <Head>
             <link rel="icon" href={ "/assets/" + theme + "/Icon.png" }/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossOrigin="anonymous" referrerPolicy="no-referrer"/>
         </Head>

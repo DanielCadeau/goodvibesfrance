@@ -91,13 +91,13 @@ button[data-button="callToActionWithIcon"] {
     height: 30px;
     padding: 0px;
 }
-button:hover {
+button:not(.searchButton):hover {
     background-color: transparent;
 }
 button[data-button="callToActionWithIcon"]:hover > i {
     color: var(--main-text-color);
 }
-button::before {
+button:not(.searchButton)::before {
     width: 100%;
     height: 100%;
     content: "";
@@ -111,7 +111,7 @@ button::before {
     transition: opacity 0.3s ease;
     z-index: -1;
 }
-button:hover::before {
+button:not(.searchButton):hover::before {
     opacity: 1;
 }
 input,
@@ -237,12 +237,14 @@ select {
 }
 .fieldContainer > .field > input.filled + .labelContainer > label,
 .fieldContainer > .field > input:focus + .labelContainer > label {
-    font-size: 12px;
+    font-size: 10px;
     color: transparent;
     font-weight: bold;
 }
 .fieldContainer > .field > input.error + .labelContainer > label {
+    font-size: 10px;
     color: var(--error-color);
+    font-weight: bold;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Field Error Container */

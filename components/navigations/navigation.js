@@ -66,7 +66,7 @@ const Navigation = ({ Settings }) => {
 const SearchBar = ({ Settings }) => {
     return <form className={ navigation.searchBarContainer }>
         <input type="search" placeholder={ translations[Settings.language]["Search for an event"] }></input>
-        <button type="submit">
+        <button className="searchButton" type="submit">
             <i className="fa-solid fa-magnifying-glass"></i>
         </button>
     </form>;
