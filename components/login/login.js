@@ -2,13 +2,12 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 import LoginForm from "../forms/loginForm";
-import config from "../../config.json";
 import login from "./login.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Login */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const Login = ({ Settings, State }) => {
-    return <div id="login" className={ login.container + ((State) ? " " + login.show : "") }>
+const Login = ({ Settings, LoginState }) => {
+    return <div id="login" className={ login.container + ((LoginState) ? " " + login.show : "") }>
         <LoginForm Settings={ Settings }></LoginForm>
     </div>;
 };
