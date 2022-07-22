@@ -4,7 +4,6 @@
 import Image from "next/image";
 import Input from "../fields/input";
 import config from "../../config.json";
-import translations from "../../translations.json";
 import loginForm from "./loginForm.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Login Form */
@@ -23,6 +22,9 @@ const LoginForm = ({ Settings }) => {
             <Image src={ "/assets/" + Settings.theme + "/Logo.png" } width={ 110 } height={ 80 }/>
         </div>
         { config.forms.login.map((field, key) => bindField(key, field)) }
+        <div className={ loginForm.separator }>
+            <p>{ Settings.translate["OR"] }</p>
+        </div>
     </form>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */

@@ -2,55 +2,53 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navigation from "../components/navigations/navigation";
 import Login from "../components/login/login";
+import config from "../config.json";
+import translations from "../translations.json";
 import "../public/stylesheets/root.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* App */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const App = ({ Component, pageProps }) => {
-    const [ language, setLanguage ] = useState("fr");
-    const [ theme, setTheme ] = useState("light");
-    const [ toggleLoginForm, setToggleLoginForm ] = useState(false);
-    const  settings = {
-        language: language,
-        setLanguage: setLanguage,
-        theme: theme,
-        setTheme: setTheme,
-        loginFormState: toggleLoginForm,
-        setLoginFormState: setToggleLoginForm
-    };
+    const { data } = pageProps;
+    const [ language, setLanguage ] = useState(data.language);
+    const [ theme, setTheme ] = useState(data.theme);
+    const [ login, setLogin ] = useState(false);
+    const settings = useMemo(() => {
+        return { language: language, theme: theme, translate: translations[language] };
+    }, [ language, theme ]);
     useEffect(() => {
-        var applyLanguage = () => {
+        var applySettings = () => {
             const html = document.querySelector("html");
             html.setAttribute("lang", language);
-        }; applyLanguage();
-        return () => applyLanguage = null;
-    }, [ language ] );
-    useEffect(() => {
-        var applyTheme = () => {
-            const body = document.body;
-            body?.setAttribute("data-theme", theme);
-        }; applyTheme();
-        return () => applyTheme = null;
-    }, [ theme ]);
-    return <>
-        <Head>
-            <link rel="icon" href={ "/assets/" + theme + "/Icon.png" }/>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"/>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossOrigin="anonymous" referrerPolicy="no-referrer"/>
-        </Head>
-        <div id="root">
-            <Navigation Settings={ settings }></Navigation>
-            { (toggleLoginForm) ? <Login Settings={ settings }></Login> : null }
-            <div id="app">
-                <Component { ...pageProps } Settings={ settings }/>
+            document.body.setAttribute("data-theme", theme);
+            return { html: html, body: document.body };
+        }; applySettings();
+        return () => applySettings = null;
+    }, [ language, theme ]);
+    const setters = { language: setLanguage, theme: setTheme, login: setLogin };
+    const { href, integrity, crossOrigin, referrerPolicy } = config.resources.fontawesome;
+    // console.log("Page properties :", pageProps);
+    // console.log("Settings :", settings);
+    // console.log("Setters :", setters);
+    if(language && theme) {
+        return <>
+            <Head>
+                <link rel="icon" href={ "/assets/" + theme + "/Icon.png" }/>
+                <link rel="stylesheet" href={ href } integrity={ integrity } crossOrigin={ crossOrigin } referrerPolicy={ referrerPolicy }/>
+            </Head>
+            <div id="root">
+                <Navigation Settings={ settings } Setters={ setters } LoginState={ login }></Navigation>
+                <Login Settings={ settings } LoginState={ login }></Login>
+                <div id="app">
+                    <Component { ...pageProps } Settings={ settings } Setters={ setters }/>
+                </div>
             </div>
-        </div>
-    </>;
+        </>;
+    };
+    return <></>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */

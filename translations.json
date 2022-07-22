@@ -1,5 +1,5 @@
 {
-    "fr": {
+    "french": {
         "Home": "Accueil",
         "Events": "Évènements",
         "Search for an event": "Rechercher un évènement",
@@ -12,11 +12,12 @@
         "Email": "Adresse email",
         "Password": "Mot de passe",
         "Log in": "Connexion",
+        "OR": "OU",
         "/": "/",
         "/events": "/evenements",
         "/contactus" : "/nouscontacter"
     },
-    "en": {
+    "english": {
         "Home": "Home",
         "Events": "Events",
         "Search for an event": "Search for an event",
@@ -29,6 +30,7 @@
         "Email": "Email",
         "Password": "Password",
         "Log in": "Log in",
+        "OR": "OR",
         "/": "/",
         "/events": "/events",
         "/contactus" : "/contactus"

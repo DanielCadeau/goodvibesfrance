@@ -2,14 +2,14 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
-import translations from "../translations.json";
+import { PrismaClient } from "@prisma/client";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Home */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const Home = ({ Settings }) => {
+const Home = ({ props, Settings, Setters }) => {
     return <>
         <Head>
-            <title>{ "Good Vibes France - " + translations[Settings.language]["Home"] }</title>
+            <title>{ "Good Vibes France - " + Settings.translate["Home"] }</title>
         </Head>
         <div className="boxedContent">
 
@@ -17,6 +17,22 @@ const Home = ({ Settings }) => {
     </>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Props */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+const getServerSideProps = async (context) => {
+    const prisma = new PrismaClient();
+    await prisma.$connect();
+    const object = { props: {} };
+    try {
+        const response = await prisma.settings.findFirst();
+        object.props.data = response;
+    } catch(error) {
+        object.props.error = error.message;
+    };
+    return object;
+};
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 export default Home;
+export { getServerSideProps };
