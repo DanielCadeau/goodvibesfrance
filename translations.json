@@ -12,6 +12,7 @@
         "Email": "Adresse email",
         "Password": "Mot de passe",
         "Log in": "Connexion",
+        "OR": "OU",
         "/": "/",
         "/events": "/evenements",
         "/contactus" : "/nouscontacter"
@@ -29,6 +30,7 @@
         "Email": "Email",
         "Password": "Password",
         "Log in": "Log in",
+        "OR": "OR",
         "/": "/",
         "/events": "/events",
         "/contactus" : "/contactus"

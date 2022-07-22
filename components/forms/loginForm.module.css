@@ -16,3 +16,19 @@
     align-items: center;
     margin: 0px auto 16px auto;
 }
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Separator */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2px;
+    background-color: var(--placeholder-color);
+}
+.separator > p {
+    padding: 8px;
+    border-radius: 100px;
+    background-color: var(--main-background-color);
+}
