@@ -5,15 +5,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import config from "../../config.json";
-import translations from "../../translations.json";
 import QuickSettingsMenu from "../menus/quickSettingsMenu";
+import config from "../../config.json";
 import navigation from "./navigation.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Navigation */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const Navigation = ({ Settings }) => {
-    const [ toggleQuickSettingsMenu, setToggleQuickSettingsMenu ] = useState(false);
+const Navigation = ({ Settings, Setters, LoginState }) => {
+    const [ quickSettings, setQuickSettings ] = useState(false);
     const { route } = useRouter();
     useEffect(() => {
         var setActive = () => {
@@ -30,7 +29,7 @@ const Navigation = ({ Settings }) => {
         const link = target?.querySelector("a");
         return link?.click();
     };
-    return <nav className={ navigation.container + ((Settings.loginFormState) ? " " + navigation.popupOpened : "") }>
+    return <nav className={ navigation.container + ((LoginState) ? " " + navigation.popupOpened : "") }>
         <div id="topBar" className={ navigation.topBar }>
             <div className={ navigation.logo }>
                 <Link href={ "/" }>
@@ -41,9 +40,9 @@ const Navigation = ({ Settings }) => {
             </div>
             <ul className={ navigation.menu }>
                 { config.navigation.topBar.map((link, key) => <li key={ key } onClick={ transferToChild }>
-                    <Link href={ translations[Settings.language][link.url] }>
+                    <Link href={ Settings.translate[link.url] }>
                         <a>
-                            <p>{ translations[Settings.language][link.page] }</p>
+                            <p>{ Settings.translate[link.page] }</p>
                         </a>
                     </Link>
                 </li>) }
@@ -51,12 +50,12 @@ const Navigation = ({ Settings }) => {
             <SearchBar Settings={ Settings }></SearchBar>
             <div className={ navigation.userActionsBackground }></div>
             <div id="userActionsContainer" className={ navigation.userActionsContainer }>
-                <button data-button="callToAction" onClick={ () => Settings.setLoginFormState(!Settings.loginFormState) }>{ translations[Settings.language]["Login"] }</button>
-                <button data-button="callToActionWithIcon" onClick={ () => setToggleQuickSettingsMenu(!toggleQuickSettingsMenu) }>
+                <button data-button="callToAction" onClick={ () => Setters.login(!LoginState) }>{ Settings.translate["Login"] }</button>
+                <button data-button="callToActionWithIcon" onClick={ () => setQuickSettings(!quickSettings) }>
                     <i className="fa-solid fa-cog"></i>
                 </button>
             </div>
-            <QuickSettingsMenu Settings={ Settings } State={ toggleQuickSettingsMenu }></QuickSettingsMenu>
+            <QuickSettingsMenu Settings={ Settings } Setters={ Setters } State={ quickSettings }></QuickSettingsMenu>
         </div>
     </nav>;
 };
@@ -65,7 +64,7 @@ const Navigation = ({ Settings }) => {
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 const SearchBar = ({ Settings }) => {
     return <form className={ navigation.searchBarContainer }>
-        <input type="search" placeholder={ translations[Settings.language]["Search for an event"] }></input>
+        <input type="search" placeholder={ Settings.translate["Search for an event"] }></input>
         <button className="searchButton" type="submit">
             <i className="fa-solid fa-magnifying-glass"></i>
         </button>

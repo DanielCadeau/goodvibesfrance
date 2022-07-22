@@ -3,13 +3,12 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 import LoginForm from "../forms/loginForm";
 import config from "../../config.json";
-import translations from "../../translations.json";
 import login from "./login.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Login */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const Login = ({ Settings }) => {
-    return <div id="login" className={ login.container + ((Settings.loginFormState) ? " " + login.show : "") }>
+const Login = ({ Settings, State }) => {
+    return <div id="login" className={ login.container + ((State) ? " " + login.show : "") }>
         <LoginForm Settings={ Settings }></LoginForm>
     </div>;
 };

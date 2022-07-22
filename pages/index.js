@@ -3,14 +3,13 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { PrismaClient } from "@prisma/client";
-import translations from "../translations.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Home */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const Home = ({ Settings, props }) => {
+const Home = ({ props, Settings, Setters }) => {
     return <>
         <Head>
-            <title>{ "Good Vibes France - " + translations[Settings.language]["Home"] }</title>
+            <title>{ "Good Vibes France - " + Settings.translate["Home"] }</title>
         </Head>
         <div className="boxedContent">
 
@@ -18,21 +17,19 @@ const Home = ({ Settings, props }) => {
     </>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Fetching Data */
+/* Props */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const getServerSideProps = async (context) => {
     const prisma = new PrismaClient();
-    const fetch = async () => {
-        await prisma.$connect();
-        const gvfSettings = await prisma.settings.findFirst();
-        return gvfSettings;
+    await prisma.$connect();
+    const object = { props: {} };
+    try {
+        const response = await prisma.settings.findFirst();
+        object.props.data = response;
+    } catch(error) {
+        object.props.error = error.message;
     };
-    const response = await fetch().catch((error) => { throw error }).finally(async () => await prisma.$disconnect());
-    return {
-        props: {
-            gvfSettings : response
-        }
-    };
+    return object;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */

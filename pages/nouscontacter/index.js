@@ -2,14 +2,14 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
-import translations from "../../translations.json";
+import { PrismaClient } from "@prisma/client";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* ContactUs */
+/* Contact Us */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const ContactUs = ({ Settings }) => {
+const ContactUs = ({ props, Settings, Setters }) => {
     return <>
         <Head>
-            <title>{ "Good Vibes France - " + translations[Settings.language]["Contact Us"] }</title>
+            <title>{ "Good Vibes France - " + Settings.translate["Contact Us"] }</title>
         </Head>
         <div className="boxedContent">
 
@@ -17,6 +17,22 @@ const ContactUs = ({ Settings }) => {
     </>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Props */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+const getServerSideProps = async (context) => {
+    const prisma = new PrismaClient();
+    await prisma.$connect();
+    const object = { props: {} };
+    try {
+        const response = await prisma.settings.findFirst();
+        object.props.data = response;
+    } catch(error) {
+        object.props.error = error.message;
+    };
+    return object;
+};
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Exports */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 export default ContactUs;
+export { getServerSideProps };

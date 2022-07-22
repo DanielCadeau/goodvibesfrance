@@ -2,7 +2,6 @@
 /* Dependencies */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 import { useState } from "react";
-import translations from "../../translations.json";
 import input from "./input.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Input */
@@ -10,9 +9,9 @@ import input from "./input.module.css";
 const Input = ({ Settings, Field }) => {
     const [ inputValue, setInputValue ] = useState(null);
     const { id, type, name, label, placeholder, defaultValue, required } = Field;
-    const evalLabel = translations[Settings.language][label] || undefined;
-    // const evalPlaceholder = translations[Settings.language][placeholder] || undefined;
-    const evalDefaultValue = ((type === "submit") ? translations[Settings.language][defaultValue] : defaultValue) || undefined;
+    const evalLabel = Settings.translate[label] || undefined;
+    // const evalPlaceholder = Settings.translate[placeholder] || undefined;
+    const evalDefaultValue = ((type === "submit") ? Settings.translate[defaultValue] : defaultValue) || undefined;
     const evalRequired = required || undefined;
     const handleInputValue = (event) => {
         const target = event.target;

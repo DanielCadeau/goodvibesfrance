@@ -4,7 +4,6 @@
 import Image from "next/image";
 import Input from "../fields/input";
 import config from "../../config.json";
-import translations from "../../translations.json";
 import loginForm from "./loginForm.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Login Form */
