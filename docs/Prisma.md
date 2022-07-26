@@ -93,12 +93,12 @@ module.exports = Users;
 ```
 NOTE THAT YOUR COLLECTION NAME HERE NEEDS TO HAVE THE EXACT SAME NAME AS THE MODEL YOU'VE CREATED UNDER **./prisma/schema.prisma**.
 
-Once your fixture created in the fixtures folders, you can open the file **fixtures.js** which is supposed to be in the same location as your fixture, which means, in the **fixtures** folder.
+Once your fixture created in the fixtures folder, you can open the file **fixtures.js** which is supposed to be in the same location as your fixture, which means, in the **./fixtures** folder.
 
 Once openened, here's what you'll have to do :
 ```javascript
 // You'll need to import your fixtures here using require since this is not a module.
-const Users = require("../fixtures/users");
+const Users = require("./users");
 
 const Fixtures = () => {
     // Then, you'll add all of your imported fixtures in this array
