@@ -82,7 +82,7 @@ const Users = async () => {
     ];
     try{
         // The first parameter is the array you defined above, the second parameter is the collection where the objects above should be saved as MongoDB documents.
-        const response = await Prisma(data, "settings");
+        const response = await Prisma(data, "users");
         return response;
     } catch(error) {
         return new ErrorHandler(error);
