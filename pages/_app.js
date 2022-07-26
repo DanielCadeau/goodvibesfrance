@@ -30,9 +30,6 @@ const App = ({ Component, pageProps }) => {
     }, [ language, theme ]);
     const setters = { language: setLanguage, theme: setTheme, login: setLogin };
     const { href, integrity, crossOrigin, referrerPolicy } = config.resources.fontawesome;
-    // console.log("Page properties :", pageProps);
-    // console.log("Settings :", settings);
-    // console.log("Setters :", setters);
     if(language && theme) {
         return <>
             <Head>
