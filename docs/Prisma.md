@@ -1,7 +1,6 @@
 # Prisma Documentation
 
 ## Installation
----
 
 Clone the project then create a .env in the root directory, put this inside :
 ```
@@ -24,7 +23,6 @@ npm add -D prisma -g
 ```
 
 ## Prisma models
----
 
 To create a new Prisma model, you have to open **schema.prisma** that is located in **./prisma** folder. Once opened, here's the location where you put every model you'd want to create. To create a model you can follow this example :
 ```

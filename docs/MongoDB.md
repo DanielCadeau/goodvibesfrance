@@ -1,7 +1,6 @@
 # MongoDB Documentation
 
 ## Windows installation
----
 
 First thing you want to do, is installing [MongoDB Community Server for Windows](https://www.mongodb.com/try/download/community?tck=docs_server), then launch the installer and follow the steps. During the installation you'll be suggested to install **MongoDB Compass** which is a user interface to help you visualize your **MongoDB databases** in a better way. Feel free to install, or not, it's up to you.
 
@@ -12,12 +11,10 @@ When **MongoDB Shell's installation** is finished, you'll need to restart your m
 Now you want to make sure that the **MongoDB service** is started and currently running. To do that, open your task manager go to services, look for **MongoDB**, then see the service status on the right, it should be started. If not, right click on the service, and start it.
 
 ## MAC OS installation
----
 
 Same installation process as Windows users. But you have to select **MAC OS** installers when you click on the links above.
 
 ## Adding a new user admin in MongoDB
----
 
 If you need to add a new admin user to manage your databases, open your **CLI** and type the next commands.
 
