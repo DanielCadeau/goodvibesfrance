@@ -30,6 +30,7 @@
 }
 .separator > p {
     padding: 8px;
+    color: var(--placeholder-color);
     border-radius: 100px;
     background-color: var(--main-background-color);
 }

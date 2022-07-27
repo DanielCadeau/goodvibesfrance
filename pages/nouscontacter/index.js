@@ -3,6 +3,9 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { PrismaClient } from "@prisma/client";
+import Header from "../../components/headers/header";
+import ContactForm from "../../components/forms/contactForm";
+import config from "../../config.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Us */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -12,7 +15,13 @@ const ContactUs = ({ props, Settings, Setters }) => {
             <title>{ "Good Vibes France - " + Settings.translate["Contact Us"] }</title>
         </Head>
         <div className="boxedContent">
+            <Header Text={ Settings.translate["Contact us by email"] }/>
+            <ContactForm Settings={ Settings }></ContactForm>
+            <div className="coFounders">
+                { config.team.map((field, key) => <div key={ key } className="teamMember">
 
+                </div>) }
+            </div>
         </div>
     </>;
 };
