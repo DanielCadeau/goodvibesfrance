@@ -10,7 +10,7 @@ Clone the project then create a .env in the root directory, put this inside :
 # Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
-DATABASE_URL="mongodb+srv://username:password@cluster.digits.mongodb.net"
+DATABASE_URL="mongodb+srv://username:password@cluster.digits.mongodb.net/databasename"
 ```
 PLEASE NOTE THAT **PRISMA NEEDS A CLUSTER TO WORK PROPERLY WHEN USING MONGODB** DUE TO TRANSACTIONS PURPOSES.
 
