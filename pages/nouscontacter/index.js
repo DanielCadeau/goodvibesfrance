@@ -19,7 +19,7 @@ const ContactUs = ({ props, Settings, Setters }) => {
             <ContactForm Settings={ Settings }></ContactForm>
             <div className="coFounders">
                 { config.team.map((field, key) => <div key={ key } className="teamMember">
-
+                    
                 </div>) }
             </div>
         </div>

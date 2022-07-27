@@ -28,11 +28,9 @@
             { "id": null, "type": "submit", "name": null, "label": null, "placeholder": null, "defaultValue": "Log in", "required": null }
         ],
         "contact": [
-            { "id": "from", "type": "text", "name": "from", "label": "From", "placeholder": null, "defaultValue": null, "required": true },
-            { "id": "to", "type": "text", "name": "to", "label": "To", "placeholder": null, "defaultValue": null, "required": true },
-            { "id": "subject", "type": "text", "name": "subject", "label": "Subject", "placeholder": null, "defaultValue": null, "required": true },
-            { "id": "text", "type": "textarea", "name": "text", "label": "Text", "placeholder": null, "defaultValue": null, "required": true },
-            { "id": "html", "type": "textarea", "name": "html", "label": "HTML", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "name", "type": "text", "name": "user_name", "label": "Name", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "email", "type": "email", "name": "user_email", "label": "Email", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "message", "type": "textarea", "name": "message", "label": "Message", "placeholder": null, "defaultValue": null, "required": true },
             { "id": null, "type": "submit", "name": null, "label": null, "placeholder": null, "defaultValue": "Send", "required": null }
         ]
     },
