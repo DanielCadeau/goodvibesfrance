@@ -26,6 +26,19 @@
             { "id": "loginEmail", "type": "email", "name": "email", "label": "Email", "placeholder": null, "defaultValue": null, "required": true },
             { "id": "loginPassword", "type": "password", "name": "password", "label": "Password", "placeholder": null, "defaultValue": null, "required": true },
             { "id": null, "type": "submit", "name": null, "label": null, "placeholder": null, "defaultValue": "Log in", "required": null }
+        ],
+        "contact": [
+            { "id": "from", "type": "text", "name": "from", "label": "From", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "to", "type": "text", "name": "to", "label": "To", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "subject", "type": "text", "name": "subject", "label": "Subject", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "text", "type": "textarea", "name": "text", "label": "Text", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": "html", "type": "textarea", "name": "html", "label": "HTML", "placeholder": null, "defaultValue": null, "required": true },
+            { "id": null, "type": "submit", "name": null, "label": null, "placeholder": null, "defaultValue": "Send", "required": null }
         ]
-    }
+    },
+    "team": [
+        { "firstname": "Ophélie", "lastname": "Diomar", "Job": "Fullstack Web Developer", "linkedin": "", "photoUrl": "" },
+        { "firstname": "Daniel", "lastname": "Cadeau", "Job": "Fullstack Web Developer", "linkedin": "", "photoUrl": "" },
+        { "firstname": "Amine", "lastname": "Belkheiri", "Job": "Fullstack Web Developer", "linkedin": "", "photoUrl": "" }
+    ]
 }
