@@ -271,9 +271,10 @@ select {
 }
 .fieldContainer > .field > .labelContainer {
     position: absolute;
-    padding: 0px 8px;
+    padding: 2px 8px;
     top: 50%;
     transform: translateY(-50%);
+    border-radius: 5px;
     background-color: var(--main-background-color);
     transition: top 0.3s ease;
 }
