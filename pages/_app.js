@@ -14,8 +14,8 @@ import "../public/stylesheets/root.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const App = ({ Component, pageProps }) => {
     const { data } = pageProps;
-    const [ language, setLanguage ] = useState(data.language);
-    const [ theme, setTheme ] = useState(data.theme);
+    const [ language, setLanguage ] = useState(data.language || "french");
+    const [ theme, setTheme ] = useState(data.theme || "light");
     const [ login, setLogin ] = useState(false);
     const Settings = useMemo(() => {
         return { language: language,
