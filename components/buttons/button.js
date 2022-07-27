@@ -1,23 +1,14 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Login Container */
+/* Button */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-.container {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, 100vh);
-    border-radius: 10px;
-    background-color: var(--main-background-color);
-    box-shadow: var(--box-shadow);
-    transition: transform 1s ease 0.3s;
-    z-index: 2000;
-}
+const Button = ({ Id = undefined, Type = "callToAction", Text = "Button", IconClass = null, OnClick = undefined }) => {
+    return <button id={ Id } data-button={ Type } onClick={ OnClick }>
+        <span>
+            { (IconClass) ? <i className={ IconClass }></i> : Text }
+        </span>
+    </button>;
+};
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Toggling Class */
+/* Exports */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-.show {
-    transform: translate(50%, -50%);
-}
+export default Button;

@@ -68,55 +68,64 @@ a, button, input[type="submit"] {
     cursor: pointer;
 }
 i {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
     background: var(--diagonal-gradient-color);
     background-clip: text;
     transition: color 0.3s ease;
 }
-a:hover > i,
-button:hover > i {
+a:hover i,
+button:hover i {
     color: transparent;
 }
 button[data-button="callToAction"],
 button[data-button="callToActionWithIcon"] {
-    max-height: 30px;
-    margin: 0px 0px 0px auto;
-    padding: 8px 16px;
-    position: relative;
-    border-radius: 100px;
-    background-color: var(--main-background-color);
-    box-shadow: var(--darker-box-shadow);
-    transition: background-color 0.3s ease;
-}
-button[data-button="callToActionWithIcon"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
     height: 30px;
-    padding: 0px;
-}
-button:not(.searchButton):hover {
-    background-color: transparent;
-}
-button[data-button="callToActionWithIcon"]:hover > i {
-    color: var(--main-text-color);
-}
-button:not(.searchButton)::before {
-    width: 100%;
-    height: 100%;
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0;
-    filter: blur(10px);
+    margin: 0px 0px 0px auto;
+    position: relative;
     border-radius: 100px;
     background: var(--horizontal-gradient-color);
+    box-shadow: var(--darker-box-shadow);
+    z-index: 1;
+}
+button[data-button="callToActionWithIcon"] {
+    width: 30px;
+    padding: 0px;
+}
+button[data-button="callToAction"] > span {
+    padding: 8px 16px;
+}
+button[data-button="callToAction"] > span,
+button[data-button="callToActionWithIcon"] > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    position: relative;
+    border-radius: 100px;
+    background-color: var(--main-background-color);
+}
+button[data-button="callToAction"] > span::before,
+button[data-button="callToActionWithIcon"] > span::before {
+    content: "";
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    position: absolute;
+    border-radius: 100px;
+    background-color: var(--main-background-color);
     transition: opacity 0.3s ease;
     z-index: -1;
 }
-button:not(.searchButton):hover::before {
-    opacity: 1;
+button[data-button="callToAction"]:hover > span::before,
+button[data-button="callToActionWithIcon"]:hover > span::before {
+    opacity: 0;
 }
 input,
 select {
@@ -179,8 +188,8 @@ select {
     flex-direction: column;
     padding: 2px;
     position: relative;
-    background: var(--placeholder-color);
     border-radius: 5px;
+    background: var(--placeholder-color);
     transition: background 0.3s ease;
 }
 .fieldContainer.submitField {

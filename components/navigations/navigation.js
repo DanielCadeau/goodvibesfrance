@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import QuickSettingsMenu from "../menus/quickSettingsMenu";
+import Button from "../buttons/button";
 import config from "../../config.json";
 import navigation from "./navigation.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -24,11 +25,18 @@ const Navigation = ({ Settings, Setters, LoginState }) => {
         }; setActive();
         return () => setActive = null;
     }, [ route ]);
+    useEffect(() => {
+        var closeQuickSettingsMenu = () => Settings.outOfRange.handle("#quickSettingsMenu", "#settingsButton", setQuickSettings);
+        closeQuickSettingsMenu();
+        return () => closeQuickSettingsMenu = null;
+    }, []);
     const transferToChild = (event) => {
         const target = event.target.closest("li");
         const link = target?.querySelector("a");
         return link?.click();
     };
+    const showLogin = () => Setters.login(!LoginState);
+    const showQuickSettings = () => setQuickSettings(!quickSettings);
     return <nav className={ navigation.container + ((LoginState) ? " " + navigation.popupOpened : "") }>
         <div id="topBar" className={ navigation.topBar }>
             <div className={ navigation.logo }>
@@ -47,15 +55,13 @@ const Navigation = ({ Settings, Setters, LoginState }) => {
                     </Link>
                 </li>) }
             </ul>
-            <SearchBar Settings={ Settings }></SearchBar>
+            <SearchBar Settings={ Settings }/>
             <div className={ navigation.userActionsBackground }></div>
             <div id="userActionsContainer" className={ navigation.userActionsContainer }>
-                <button data-button="callToAction" onClick={ () => Setters.login(!LoginState) }>{ Settings.translate["Login"] }</button>
-                <button data-button="callToActionWithIcon" onClick={ () => setQuickSettings(!quickSettings) }>
-                    <i className="fa-solid fa-cog"></i>
-                </button>
+                <Button Id={ "loginButton" } Text={ Settings.translate["Login"] } OnClick={ showLogin }/>
+                <Button Id={ "settingsButton" } Type={ "callToActionWithIcon" } IconClass={ "fa-solid fa-cog" } OnClick={ showQuickSettings }/>
             </div>
-            <QuickSettingsMenu Settings={ Settings } Setters={ Setters } State={ quickSettings }></QuickSettingsMenu>
+            <QuickSettingsMenu Settings={ Settings } Setters={ Setters } State={ quickSettings }/>
         </div>
     </nav>;
 };
@@ -65,9 +71,7 @@ const Navigation = ({ Settings, Setters, LoginState }) => {
 const SearchBar = ({ Settings }) => {
     return <form className={ navigation.searchBarContainer }>
         <input type="search" placeholder={ Settings.translate["Search for an event"] }></input>
-        <button className="searchButton" type="submit">
-            <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
+        <Button Type={ "callToActionWithIcon" } IconClass={ "fa-solid fa-magnifying-glass" } OnClick={ undefined }/>
     </form>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */

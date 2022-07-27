@@ -3,6 +3,7 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
+import OutOfRangeHandler from "../utilities/outOfRangeHandler";
 import Navigation from "../components/navigations/navigation";
 import Login from "../components/login/login";
 import config from "../config.json";
@@ -16,8 +17,12 @@ const App = ({ Component, pageProps }) => {
     const [ language, setLanguage ] = useState(data.language);
     const [ theme, setTheme ] = useState(data.theme);
     const [ login, setLogin ] = useState(false);
-    const settings = useMemo(() => {
-        return { language: language, theme: theme, translate: translations[language] };
+    const Settings = useMemo(() => {
+        return { language: language,
+            theme: theme,
+            translate: translations[language],
+            outOfRange: new OutOfRangeHandler()
+        };
     }, [ language, theme ]);
     useEffect(() => {
         var applySettings = () => {
@@ -28,6 +33,11 @@ const App = ({ Component, pageProps }) => {
         }; applySettings();
         return () => applySettings = null;
     }, [ language, theme ]);
+    useEffect(() => {
+        var closeLoginForm = () => Settings.outOfRange.handle("#login", "#loginButton", setLogin);
+        closeLoginForm();
+        return () => closeLoginForm = null;
+    }, []);
     const setters = { language: setLanguage, theme: setTheme, login: setLogin };
     const { href, integrity, crossOrigin, referrerPolicy } = config.resources.fontawesome;
     if(language && theme) {
@@ -37,10 +47,10 @@ const App = ({ Component, pageProps }) => {
                 <link rel="stylesheet" href={ href } integrity={ integrity } crossOrigin={ crossOrigin } referrerPolicy={ referrerPolicy }/>
             </Head>
             <div id="root">
-                <Navigation Settings={ settings } Setters={ setters } LoginState={ login }></Navigation>
-                <Login Settings={ settings } LoginState={ login }></Login>
+                <Navigation Settings={ Settings } Setters={ setters } LoginState={ login }></Navigation>
+                <Login Settings={ Settings } LoginState={ login }></Login>
                 <div id="app">
-                    <Component { ...pageProps } Settings={ settings } Setters={ setters }/>
+                    <Component { ...pageProps } Settings={ Settings } Setters={ setters }/>
                 </div>
             </div>
         </>;
