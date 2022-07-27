@@ -4,6 +4,7 @@
         "Events": "Évènements",
         "Search for an event": "Rechercher un évènement",
         "Contact Us": "Nous Contacter",
+        "Sign Up": "Inscription",
         "Login": "Connexion",
         "French": "Français",
         "English": "Anglais",
@@ -13,15 +14,18 @@
         "Password": "Mot de passe",
         "Log in": "Connexion",
         "OR": "OU",
+        "I don't have any account.": "Je n'ai pas de compte.",
         "/": "/",
         "/events": "/evenements",
-        "/contactus" : "/nouscontacter"
+        "/contactus" : "/nouscontacter",
+        "/signup" : "/inscription"
     },
     "english": {
         "Home": "Home",
         "Events": "Events",
         "Search for an event": "Search for an event",
         "Contact Us": "Contact Us",
+        "Sign Up": "Sign Up",
         "Login": "Login",
         "French": "French",
         "English": "English",
@@ -31,8 +35,10 @@
         "Password": "Password",
         "Log in": "Log in",
         "OR": "OR",
+        "I don't have any account.": "I don't have any account.",
         "/": "/",
         "/events": "/events",
-        "/contactus" : "/contactus"
+        "/contactus" : "/contactus",
+        "/signup" : "/signup"
     }
 }

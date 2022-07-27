@@ -113,16 +113,10 @@
 .searchBarContainer > input::placeholder {
     color: var(--placeholder-color);
 }
-.searchBarContainer > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
+.searchBarContainer > button[data-button="callToActionWithIcon"] {
     position: absolute;
     right: 0px;
-    border-radius: 30px;
-    background-color: var(--main-background-color);
+    box-shadow: none;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* User Actions Background */

@@ -1,13 +1,7 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Dependencies */
-/* --------------------------------------------------------------------------------------------------------------------------------------------- */
-import { useState } from "react";
-import input from "./input.module.css";
-/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Input */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 const Input = ({ Settings, Field }) => {
-    const [ inputValue, setInputValue ] = useState(null);
     const { id, type, name, label, placeholder, defaultValue, required } = Field;
     const evalLabel = Settings.translate[label] || undefined;
     // const evalPlaceholder = Settings.translate[placeholder] || undefined;

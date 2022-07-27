@@ -25,10 +25,44 @@
     align-items: center;
     width: 100%;
     height: 2px;
+    margin: 8px 0px;
     background-color: var(--placeholder-color);
 }
 .separator > p {
     padding: 8px;
     border-radius: 100px;
     background-color: var(--main-background-color);
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* External Auth Container */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.externalAuth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.externalAuth > button[data-button="callToActionWithIcon"] {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+}
+.externalAuth > button[data-button="callToActionWithIcon"] i {
+    font-size: 20px;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Register Link */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+.registerLink {
+    width: fit-content;
+    margin: 0px auto;
+    color: var(--placeholder-color);
+}
+.registerLink > p {
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.registerLink:hover > p {
+    color: var(--main-color);
 }
