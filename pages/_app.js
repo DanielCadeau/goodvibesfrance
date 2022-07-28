@@ -18,13 +18,13 @@ const App = ({ Component, pageProps }) => {
     const { data } = pageProps;
     const firebase = pageProps.environment;
     const firebaseConfig = {
-        apiKey: firebase.FIREBASE_API_KEY,
-        authDomain: firebase.FIREBASE_AUTH_DOMAIN,
-        projectId: firebase.FIREBASE_PROJECT_ID,
-        storageBucket: firebase.FIREBASE_STORAGE_BUCKET,
-        messagingSenderId: firebase.FIREBASE_MESSAGING_SENDER_ID,
-        appId: firebase.FIREBASE_APP_ID,
-        measurementId: firebase.FIREBASE_MEASUREMENT_ID
+        apiKey: (firebase) ? firebase.FIREBASE_API_KEY : null,
+        authDomain: (firebase) ? firebase.FIREBASE_AUTH_DOMAIN : null,
+        projectId: (firebase) ? firebase.FIREBASE_PROJECT_ID : null,
+        storageBucket: (firebase) ? firebase.FIREBASE_STORAGE_BUCKET : null,
+        messagingSenderId: (firebase) ? firebase.FIREBASE_MESSAGING_SENDER_ID : null,
+        appId: (firebase) ? firebase.FIREBASE_APP_ID : null,
+        measurementId: (firebase) ? firebase.FIREBASE_MEASUREMENT_ID : null
     };
     try {
         const app = initializeApp(firebaseConfig);
