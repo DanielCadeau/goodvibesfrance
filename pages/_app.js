@@ -26,7 +26,11 @@ const App = ({ Component, pageProps }) => {
         appId: firebase.FIREBASE_APP_ID,
         measurementId: firebase.FIREBASE_MEASUREMENT_ID
     };
-    const app = initializeApp(firebaseConfig);
+    try {
+        const app = initializeApp(firebaseConfig);
+    } catch(error) {
+        console.log("Duplicate app for Firebase.");
+    };
     // const analytics = getAnalytics(app);
     const [ language, setLanguage ] = useState((data) ? data.language : "french");
     const [ theme, setTheme ] = useState((data) ? data.theme : "light");

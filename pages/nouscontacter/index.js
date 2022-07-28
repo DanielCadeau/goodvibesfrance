@@ -3,6 +3,7 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { PrismaClient } from "@prisma/client";
+import EnvironmentHandler from "../../utilities/environmentHandler";
 import Header from "../../components/headers/header";
 import ContactForm from "../../components/forms/contactForm";
 import config from "../../config.json";
@@ -28,14 +29,16 @@ const ContactUs = ({ props, Settings, Setters }) => {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Props */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const getServerSideProps = async (context) => {
+const getServerSideProps = async () => {
+    const environmentHandler = new EnvironmentHandler(process.env);
     const prisma = new PrismaClient();
     await prisma.$connect();
     const object = { props: {} };
     object.props.environment = {
         EMAILJS_SERVICE_ID: process.env?.EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID: process.env?.EMAILJS_TEMPLATE_ID,
-        EMAILJS_PUBLIC_KEY: process.env?.EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY: process.env?.EMAILJS_PUBLIC_KEY,
+        ...environmentHandler.getFirebase()
     };
     try {
         const response = await prisma.settings.findFirst();
