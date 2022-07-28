@@ -3,6 +3,8 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import OutOfRangeHandler from "../utilities/outOfRangeHandler";
 import Navigation from "../components/navigations/navigation";
 import Login from "../components/login/login";
@@ -50,7 +52,7 @@ const App = ({ Component, pageProps }) => {
                 <Navigation Settings={ Settings } Setters={ setters } LoginState={ login }></Navigation>
                 <Login Settings={ Settings } LoginState={ login }></Login>
                 <div id="app">
-                    <Component { ...pageProps } Settings={ Settings } Setters={ setters }/>
+                    <Component pageProps={ pageProps } Settings={ Settings } Setters={ setters }/>
                 </div>
             </div>
         </>;

@@ -13,7 +13,8 @@ import contactForm from "./contactForm.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Form */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const ContactForm = ({ Settings }) => {
+const ContactForm = ({ pageProps, Settings }) => {
+    const { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } = pageProps.environment;
     const form = useRef();
     const bindField = (key, field) => {
         if(field.type === "textarea") {
@@ -25,8 +26,10 @@ const ContactForm = ({ Settings }) => {
     };
     const sendMail = async (event) => {
         event.preventDefault();
-        const response = await emailjs.sendForm("service_0vxy3wi", "template_oaqqg2g", form.current, "h_2xyfLZMNAWy6tGE");
-        console.log(await response)
+        const sendStatus = await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY);
+        const response = await sendStatus;
+        console.log(response);
+        return response;
     };
     return <form id="contactForm" className={ contactForm.container } ref={ form } onSubmit={ sendMail }>
         { config.forms.contact.map((field, key) => bindField(key, field)) }
