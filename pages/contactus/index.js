@@ -26,10 +26,8 @@ const getServerSideProps = async () => {
     try {
         const response = await prisma.settings.findFirst();
         object.props.data = response;
-        object.props.environment = process.env;
     } catch(error) {
         object.props.error = error.message;
-        object.props.environment = process.env;
     };
     return object;
 };

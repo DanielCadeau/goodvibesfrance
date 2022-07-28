@@ -12,7 +12,7 @@ import navigation from "./navigation.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Navigation */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const Navigation = ({ Settings, Setters, LoginState }) => {
+const Navigation = ({ pageProps, Settings, Setters, LoginState }) => {
     const [ quickSettings, setQuickSettings ] = useState(false);
     const { route } = useRouter();
     useEffect(() => {

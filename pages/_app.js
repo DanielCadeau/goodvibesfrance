@@ -4,7 +4,7 @@
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import OutOfRangeHandler from "../utilities/outOfRangeHandler";
 import Navigation from "../components/navigations/navigation";
 import Login from "../components/login/login";
@@ -16,6 +16,18 @@ import "../public/stylesheets/root.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 const App = ({ Component, pageProps }) => {
     const { data } = pageProps;
+    const firebase = pageProps.environment;
+    const firebaseConfig = {
+        apiKey: firebase.FIREBASE_API_KEY,
+        authDomain: firebase.FIREBASE_AUTH_DOMAIN,
+        projectId: firebase.FIREBASE_PROJECT_ID,
+        storageBucket: firebase.FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: firebase.FIREBASE_MESSAGING_SENDER_ID,
+        appId: firebase.FIREBASE_APP_ID,
+        measurementId: firebase.FIREBASE_MEASUREMENT_ID
+    };
+    const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
     const [ language, setLanguage ] = useState((data) ? data.language : "french");
     const [ theme, setTheme ] = useState((data) ? data.theme : "light");
     const [ login, setLogin ] = useState(false);
@@ -49,7 +61,7 @@ const App = ({ Component, pageProps }) => {
                 <link rel="stylesheet" href={ href } integrity={ integrity } crossOrigin={ crossOrigin } referrerPolicy={ referrerPolicy }/>
             </Head>
             <div id="root">
-                <Navigation Settings={ Settings } Setters={ setters } LoginState={ login }></Navigation>
+                <Navigation pageProps={ pageProps } Settings={ Settings } Setters={ setters } LoginState={ login }></Navigation>
                 <Login Settings={ Settings } LoginState={ login }></Login>
                 <div id="app">
                     <Component pageProps={ pageProps } Settings={ Settings } Setters={ setters }/>

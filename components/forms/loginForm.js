@@ -10,7 +10,8 @@ import loginForm from "./loginForm.module.css";
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Login Form */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
-const LoginForm = ({ Settings }) => {
+const LoginForm = ({ Settings, Authentication }) => {
+    const { authenticationPopup, authentication, googleProvider, facebookProvider, twitterProvider } = Authentication;
     const bindField = (key, field) => {
         if(field.type === "textarea") {
             return null;
@@ -19,9 +20,21 @@ const LoginForm = ({ Settings }) => {
         };
         return <Input key={ key } Settings={ Settings } Field={ field }/>
     };
-    const googleAuth = () => null;
-    const facebookAuth = () => null;
-    const twitchAuth = () => null;
+    const googleAuth = async (event) => {
+        event.preventDefault();
+        const session = await authenticationPopup(authentication, googleProvider);
+        console.log(session);
+    };
+    const facebookAuth = async (event) => {
+        event.preventDefault();
+        const session = await authenticationPopup(authentication, facebookProvider);
+        console.log(session);
+    };
+    const twitterAuth = async (event) => {
+        event.preventDefault();
+        const session = await authenticationPopup(authentication, twitterProvider);
+        console.log(session);
+    };
     return <form id="loginForm" className={ loginForm.container } onSubmit={ (e) => e.preventDefault() }>
         <div className={ loginForm.siteLogo }>
             <Image src={ "/assets/" + Settings.theme + "/Logo.png" } width={ 110 } height={ 80 }/>
@@ -33,7 +46,7 @@ const LoginForm = ({ Settings }) => {
         <div className={ loginForm.externalAuth }>
             <Button Type={ "callToActionWithIcon" } IconClass={ "fa-brands fa-google" } OnClick={ googleAuth }/>
             <Button Type={ "callToActionWithIcon" } IconClass={ "fa-brands fa-facebook" } OnClick={ facebookAuth }/>
-            <Button Type={ "callToActionWithIcon" } IconClass={ "fa-brands fa-twitch" } OnClick={ twitchAuth }/>
+            <Button Type={ "callToActionWithIcon" } IconClass={ "fa-brands fa-twitter" } OnClick={ twitterAuth }/>
         </div>
         <Link href={ Settings.translate["/signup"] }>
             <a className={ loginForm.registerLink }>
