@@ -9,14 +9,14 @@ import config from "../../config.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Us */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const ContactUs = ({ props, Settings, Setters }) => {
+const ContactUs = ({ pageProps, Settings, Setters }) => {
     return <>
         <Head>
             <title>{ "Good Vibes France - " + Settings.translate["Contact Us"] }</title>
         </Head>
         <div className="boxedContent">
             <Header Text={ Settings.translate["Contact us by email"] }/>
-            <ContactForm Settings={ Settings }></ContactForm>
+            <ContactForm pageProps={ pageProps } Settings={ Settings }></ContactForm>
             <div className="coFounders">
                 { config.team.map((field, key) => <div key={ key } className="teamMember">
                     
@@ -28,15 +28,25 @@ const ContactUs = ({ props, Settings, Setters }) => {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Props */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const getServerSideProps = async (context) => {
+const getServerSideProps = async () => {
     const prisma = new PrismaClient();
     await prisma.$connect();
     const object = { props: {} };
     try {
         const response = await prisma.settings.findFirst();
         object.props.data = response;
+        object.props.environment = {
+            EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+            EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY
+        };
     } catch(error) {
         object.props.error = error.message;
+        object.props.environment = {
+            EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+            EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY
+        };
     };
     return object;
 };
