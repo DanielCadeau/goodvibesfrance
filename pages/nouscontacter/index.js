@@ -32,21 +32,16 @@ const getServerSideProps = async () => {
     const prisma = new PrismaClient();
     await prisma.$connect();
     const object = { props: {} };
+    object.props.environment = {
+        EMAILJS_SERVICE_ID: process.env?.EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID: process.env?.EMAILJS_TEMPLATE_ID,
+        EMAILJS_PUBLIC_KEY: process.env?.EMAILJS_PUBLIC_KEY
+    };
     try {
         const response = await prisma.settings.findFirst();
         object.props.data = response;
-        object.props.environment = {
-            EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
-            EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
-            EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY
-        };
     } catch(error) {
         object.props.error = error.message;
-        object.props.environment = {
-            EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
-            EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
-            EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY
-        };
     };
     return object;
 };
