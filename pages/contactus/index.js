@@ -19,7 +19,7 @@ const ContactUs = ({ props, Settings, Setters }) => {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Props */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const getServerSideProps = async () => {
+const getServerSideProps = async (context) => {
     const prisma = new PrismaClient();
     await prisma.$connect();
     const object = { props: {} };

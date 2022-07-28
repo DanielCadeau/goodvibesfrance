@@ -9,14 +9,14 @@ import config from "../../config.json";
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Us */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const ContactUs = ({ pageProps, Settings, Setters }) => {
+const ContactUs = ({ props, Settings, Setters }) => {
     return <>
         <Head>
             <title>{ "Good Vibes France - " + Settings.translate["Contact Us"] }</title>
         </Head>
         <div className="boxedContent">
             <Header Text={ Settings.translate["Contact us by email"] }/>
-            <ContactForm pageProps={ pageProps } Settings={ Settings }></ContactForm>
+            <ContactForm Settings={ Settings }></ContactForm>
             <div className="coFounders">
                 { config.team.map((field, key) => <div key={ key } className="teamMember">
                     
@@ -28,7 +28,7 @@ const ContactUs = ({ pageProps, Settings, Setters }) => {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Props */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-const getServerSideProps = async () => {
+const getServerSideProps = async (context) => {
     const prisma = new PrismaClient();
     await prisma.$connect();
     const object = { props: {} };

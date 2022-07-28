@@ -61,10 +61,10 @@ const App = ({ Component, pageProps }) => {
                 <link rel="stylesheet" href={ href } integrity={ integrity } crossOrigin={ crossOrigin } referrerPolicy={ referrerPolicy }/>
             </Head>
             <div id="root">
-                <Navigation pageProps={ pageProps } Settings={ Settings } Setters={ setters } LoginState={ login }></Navigation>
+                <Navigation pageProps={ pageProps } Settings={ Settings } Setters={ setters } LoginState={ login }/>
                 <Login Settings={ Settings } LoginState={ login }></Login>
                 <div id="app">
-                    <Component pageProps={ pageProps } Settings={ Settings } Setters={ setters }/>
+                    <Component { ...pageProps } Settings={ Settings } Setters={ setters }/>
                 </div>
             </div>
         </>;
