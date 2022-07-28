@@ -26,10 +26,12 @@ const App = ({ Component, pageProps }) => {
         appId: (firebase) ? firebase.FIREBASE_APP_ID : null,
         measurementId: (firebase) ? firebase.FIREBASE_MEASUREMENT_ID : null
     };
-    try {
-        const app = initializeApp(firebaseConfig);
-    } catch(error) {
-        console.log("Duplicate app for Firebase.");
+    if(firebase && firebase.FIREBASE_API_KEY) {
+        try {
+            const app = initializeApp(firebaseConfig);
+        } catch(error) {
+            console.log("Duplicate app for Firebase.");
+        };
     };
     // const analytics = getAnalytics(app);
     const [ language, setLanguage ] = useState((data) ? data.language : "french");
@@ -39,7 +41,8 @@ const App = ({ Component, pageProps }) => {
         return { language: language,
             theme: theme,
             translate: translations[language],
-            outOfRange: new OutOfRangeHandler()
+            outOfRange: new OutOfRangeHandler(),
+            firebase: firebase
         };
     }, [ language, theme ]);
     useEffect(() => {

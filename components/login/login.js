@@ -8,19 +8,23 @@ import login from "./login.module.css";
 /* Login */
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 const Login = ({ Settings, LoginState }) => {
-    const googleProvider = new GoogleAuthProvider();
-    const facebookProvider = new FacebookAuthProvider();
-    const twitterProvider = new TwitterAuthProvider();
-    const authentication = getAuth();
-    const authenticationUtilities = {
-        googleProvider: googleProvider,
-        facebookProvider: facebookProvider,
-        twitterProvider: twitterProvider,
-        authentication: authentication,
-        authenticationPopup: signInWithPopup
+    if(Settings.firebase && Settings.firebase.FIREBASE_API_KEY) {
+        const googleProvider = new GoogleAuthProvider();
+        const facebookProvider = new FacebookAuthProvider();
+        const twitterProvider = new TwitterAuthProvider();
+        const authentication = getAuth();
+        const authenticationUtilities = {
+            googleProvider: googleProvider,
+            facebookProvider: facebookProvider,
+            twitterProvider: twitterProvider,
+            authentication: authentication,
+            authenticationPopup: signInWithPopup
+        };
+        return <div id="login" className={ login.container + ((LoginState) ? " " + login.show : "") }>
+            <LoginForm Settings={ Settings } Authentication={ authenticationUtilities }></LoginForm>
+        </div>;
     };
     return <div id="login" className={ login.container + ((LoginState) ? " " + login.show : "") }>
-        <LoginForm Settings={ Settings } Authentication={ authenticationUtilities }></LoginForm>
     </div>;
 };
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
